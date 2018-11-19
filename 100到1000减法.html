@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>100到1000减法</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid blue;
+            float: left;
+            margin-left: 10px;  
+            text-align: center;
+            line-height:50px;
+        }
+        input{
+            width: 49px;
+            height: 49px;
+            margin-left: 10px;  
+        }
+        #btn{
+            margin: 20px  50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="yi"></div>
+    <div id="jia">-</div>
+    <div id="er"></div>
+    <div id="deng">=</div>
+    <input type="text"  placeholder="请输入" id="shu" /><br />
+    <input type="button" id="btn" value="确认" />
+    <span id="sss">得分:0</span>
+    <script>
+        var yi = document.getElementById("yi");
+        var er = document.getElementById("er");
+        var btn = document.getElementById("btn");
+        var dc = 0;
+        function fn(){
+            function rand( min,max ){
+        return Math.round( Math.random()*(max-min) + min )
+                                 }
+        yis = rand(100,1000);
+        ers = rand(100,1000);
+        if(yis<ers){
+            dc = yis;
+            yis = ers;
+            ers = dc;
+        }
+        }
+        fn();
+        yi.innerHTML = yis;
+        er.innerHTML = ers;
+        var i = 0;
+        btn.onclick = function(){
+            if(yis-ers==shu.value){
+                alert("正确,好厉害,请看下一题");
+                fn();
+                yi.innerHTML = yis;
+                er.innerHTML = ers;
+                shu.value = "";
+                i++;
+            }else{
+                alert("错误了，请再仔细看下题");
+                shu.value = "";
+            }
+            sss.innerHTML = "得分:"+i;
+        }
+
+</script>
+</body>
+</html>
